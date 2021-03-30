@@ -44,7 +44,7 @@ const int leds[] = { 3,4,5,6 };
 const int buttons[] = { 14,15,16,17 };
 
 // Frequencies of tones played when buttons are pressed
-const int toneFreq[] = { 277, 311, 370, 415 };  // CS4, DS4, FS4, GS4
+const int toneFreq[] = { 277, 311, 370, 415 };  // CS4, DS4, FS4, GS4
 
 // Segment bits for numbers 0-9
 int digits[10] = {
@@ -181,7 +181,7 @@ void startMenu() {
   
   // start new game if a single button is pressed for 100ms
   static int startNewGameTimer = 0;
-  if(buttonState == 1 || buttonState == 2 || buttonState == 4 || buttonState == 8) {
+  if(buttonState == 1 || buttonState == 2 || buttonState == 4 || buttonState == 8) {
     if(startNewGameTimer == 0)
       startNewGameTimer = millis();
     if(millis() - startNewGameTimer > 50) {  
@@ -247,7 +247,7 @@ void playGame() {
   // read input   
   for(int i = 0; i < 4; i++) {
     int but = digitalRead(buttons[i]);
-    if(but == LOW && prevButtonState[i] == HIGH) {
+    if(but == LOW && prevButtonState[i] == HIGH) {
       // ignore button press if time since last press is too short
       if( led >= 0 ) { //&& millis() - lastButtonPress > 50 ) { 
         // correct button pressed?
@@ -307,4 +307,3 @@ void loop() {
   else
     gameOver();
 }
-
